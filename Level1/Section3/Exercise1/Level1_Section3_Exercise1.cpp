@@ -2,7 +2,7 @@
 #include <bitset>
 
 // PART B)
-void print(){};
+void print() {};
 // => this is the tail function
 
 // PART A)

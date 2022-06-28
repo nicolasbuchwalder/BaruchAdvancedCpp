@@ -1,4 +1,4 @@
-#include "C.hpp"
+#include "C.h"
 
 #include <vector>
 #include <iostream>
@@ -6,7 +6,7 @@
 int main()
 {
     // PART B)
-    std::vector<double> initvec {1.0, 1.41, 3.14, 2.71, 10.0};
+    std::vector<double> initvec{ 1.0, 1.41, 3.14, 2.71, 10.0 };
 
     C<std::vector<double>> class1;
     class1(initvec);

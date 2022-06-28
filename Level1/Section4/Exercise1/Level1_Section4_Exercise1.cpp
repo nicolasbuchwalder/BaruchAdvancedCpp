@@ -1,6 +1,6 @@
 #include <iostream>
 #include <functional>
-#include <math.h>
+#include <cmath>
 
 // PART A)
 
@@ -18,11 +18,11 @@ void print(const FunctionType<T>& f, T t)
 // free function
 double CircleArea(const double radius)
 {
-    return M_PI * radius * radius;
+    return 3.14 * radius * radius;
 };
 
 // fonction object
-struct PerfectRectangleArea{
+struct PerfectRectangleArea {
     double operator() (double side)
     {
         return  1.618 * side * side;
@@ -31,13 +31,13 @@ struct PerfectRectangleArea{
 };
 
 // stored lambda
-FunctionType<double> SquareArea = [](double side){return side * side;};
+FunctionType<double> SquareArea = [](double side) {return side * side; };
 
 
 int main()
 {
     // PART B)
-    double t{1};
+    double t{ 1 };
 
     FunctionType<double> circle = CircleArea;
     FunctionType<double> perf_rectangle = PerfectRectangleArea();
@@ -47,6 +47,6 @@ int main()
     print(perf_rectangle, t);
     print(square, t);
 
-    
+
 }
 

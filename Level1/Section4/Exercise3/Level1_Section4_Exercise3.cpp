@@ -15,7 +15,7 @@ void print(const FunctionType<T>& f, T t)
 // given code
 class C
 {
-// Function object with extra member functions
+    // Function object with extra member functions
 private:
     double _data;
 public:
@@ -24,30 +24,30 @@ public:
         return _data + factor;
     }
 
-    double translate (double factor) {
+    double translate(double factor) {
         return _data + factor;
     }
 
-    double translate2 (double factor1, double factor2) {
+    double translate2(double factor1, double factor2) {
         return _data + factor1 + factor2;
     }
 
     static double Square(double x) {
-        return x*x;
+        return x * x;
     }
 };
 
 int main()
 {
     // PART A)
-    
+
     FunctionType<double> square = C::Square;
     print(square, 2.0);
     // => this is possible as Square function is static, so shared accros all instances
 
     // PART B)
 
-    C c{3.14};
+    C c{ 3.14 };
     FunctionType<double> translate = std::bind(&C::translate, c, std::placeholders::_1);
     print(translate, 2.0);
     FunctionType<double> translate2pix = std::bind(&C::translate2, c, std::placeholders::_1, 3.14);

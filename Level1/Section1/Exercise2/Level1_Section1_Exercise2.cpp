@@ -4,11 +4,12 @@
 #include <complex>
 #include <numeric>
 
-void printVector(std::vector<int>& v){
-        for (auto i : v)
-            std::cout << i << ' ' ;
-        std::cout << std::endl;
-    };
+// function to print vector
+void printVector(std::vector<int>& v) {
+    for (auto i : v)
+        std::cout << i << ' ';
+    std::cout << std::endl;
+};
 
 
 // Given code
@@ -19,34 +20,35 @@ struct FOMultiply
 {
     template <typename T>
     T operator () (const T& x, const T& y)
-    { return x * y; }
+    {
+        return x * y;
+    }
 
-    };
+};
 
 template <typename T>
-T MyMultiply2(const T& x, const T& y) { return x*y; };
+T MyMultiply2(const T& x, const T& y) { return x * y; };
 
 
 using Complex = std::complex<double>;
-std::vector<Complex> complexArray{Complex(1.0, 1.0), Complex(2.0, 2.0) };
+std::vector<Complex> complexArray{ Complex(1.0, 1.0), Complex(2.0, 2.0) };
 Complex initCVal(1.0, 1.0);
 
 
 
-
-int main(){
+int main() {
 
     // Given algorithm
 
-    std::vector<int> vec { 1,2,3,4,5 };
+    std::vector<int> vec{ 1,2,3,4,5 };
     int initVal = 1;
 
-    int acc {std::accumulate(vec.begin(), vec.end(), initVal, std::multiplies<int>())};
-    int accGeneric {std::accumulate(vec.begin(), vec.end(), initVal, MyMultiply)};
-    int accTemplate {std::accumulate(vec.begin(), vec.end(), initVal, FOMultiply())};
-    auto accC {std::accumulate(complexArray.begin(), complexArray.end(), initCVal, FOMultiply())};
-    Complex accCGeneric {std::accumulate(complexArray.begin(), complexArray.end(), initCVal, MyMultiply)};
-    Complex accCGenericTemplate {std::accumulate(complexArray.begin(), complexArray.end(), initCVal, MyMultiply2<Complex>)};
+    int acc{ std::accumulate(vec.begin(), vec.end(), initVal, std::multiplies<int>()) };
+    int accGeneric{ std::accumulate(vec.begin(), vec.end(), initVal, MyMultiply) };
+    int accTemplate{ std::accumulate(vec.begin(), vec.end(), initVal, FOMultiply()) };
+    auto accC{ std::accumulate(complexArray.begin(), complexArray.end(), initCVal, FOMultiply()) };
+    Complex accCGeneric{ std::accumulate(complexArray.begin(), complexArray.end(), initCVal, MyMultiply) };
+    Complex accCGenericTemplate{ std::accumulate(complexArray.begin(), complexArray.end(), initCVal, MyMultiply2<Complex>) };
 
     // PART A)
     std::cout << "Sum stl::multiplies : " << acc << std::endl;
@@ -61,11 +63,11 @@ int main(){
 
     // PART B)
 
-    auto sum_ints{0};
-    Complex sum_complex {0.0, 0.0};
+    auto sum_ints{ 0 };
+    Complex sum_complex{ 0.0, 0.0 };
 
-    std::for_each(vec.begin(), vec.end(), [&](int const& i){sum_ints += i;});
-    std::for_each(complexArray.begin(), complexArray.end(), [&](Complex const& i){sum_complex += i;});
+    std::for_each(vec.begin(), vec.end(), [&](int const& i) {sum_ints += i; });
+    std::for_each(complexArray.begin(), complexArray.end(), [&](Complex const& i) {sum_complex += i; });
 
     std::cout << "Sum of ints array is: " << sum_ints << std::endl;
     std::cout << "Sum of complex array is: " << sum_complex << std::endl;
@@ -75,8 +77,8 @@ int main(){
 
     // PART C)
     // stored lambda function that substracts susbtractor from vector. We use for each as stl algorithm
-    int substractor {5};
-    auto substract = [&](int& i){i -= substractor;};
+    int substractor{ 5 };
+    auto substract = [&](int& i) {i -= substractor; };
 
     printVector(vec);
     std::for_each(vec.begin(), vec.end(), substract);
