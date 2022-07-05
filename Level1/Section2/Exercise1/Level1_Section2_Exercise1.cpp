@@ -1,8 +1,8 @@
-#include "C.hpp"
-#include "C1.hpp"
-#include "C2.hpp"
-#include "C3.hpp"
-#include "C4.hpp"
+#include "C.h"
+#include "C1.h"
+#include "C2.h"
+#include "C3.h"
+#include "C4.h"
 
 #include <vector>
 #include <array>
@@ -14,13 +14,13 @@ int main()
     C class1;
     class1.print();
 
-    std::vector<double> initvec {1.0, 1.41, 3.14, 2.71, 10.0};
-    C class2{initvec};
+    std::vector<double> initvec{ 1.0, 1.41, 3.14, 2.71, 10.0 };
+    C class2{ initvec };
     class2.print();
 
     class1 = class2;
 
-    C class3{class1};
+    C class3{ class1 };
 
     // => everything works fine
 
@@ -29,8 +29,8 @@ int main()
     C1 class4;
     class4.print();
 
-    initvec = {1.0, 1.41, 3.14, 2.71, 10.0};
-    C1 class5{initvec};
+    initvec = { 1.0, 1.41, 3.14, 2.71, 10.0 };
+    C1 class5{ initvec };
     class5.print();
 
     // class4 = class5;
@@ -45,11 +45,11 @@ int main()
     C2 class7;
     class7.print();
 
-    initvec = {1.0, 1.41, 3.14, 2.71, 10.0};
-    C2 class8{initvec};
+    initvec = { 1.0, 1.41, 3.14, 2.71, 10.0 };
+    C2 class8{ initvec };
     class8.print();
 
-    std::array<double, 5> initarray {1.0, 1.41, 3.14, 2.71, 10.0};
+    std::array<double, 5> initarray{ 1.0, 1.41, 3.14, 2.71, 10.0 };
 
     // C2 class9{initarray};
     // => error raised: not possible: no matching 
