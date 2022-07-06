@@ -1,3 +1,5 @@
+// Level1_Section5_Exercise3.cpp: This file contains all the code for this exercise. @Nicolas Buchwalder
+
 #include <iostream>
 #include <tuple>
 #include <vector>
@@ -8,6 +10,8 @@
 
 
 // PART A)
+
+// template structur with static function to get statistics about a vector of certain type
 template <typename T, typename Vec, typename Tuple, std::size_t N>
 struct Statistics
 {
@@ -46,6 +50,7 @@ template <typename T, typename Vec, typename Tuple, std::size_t N>
 struct Distribution {
 	
 	static Tuple medianmode(const Vec& v) {
+		// is the vector is empty, simply return statistics of 0
 		if (v.empty()) {
 			Tuple zeroes{ std::make_tuple(0,0) };
 			return zeroes;
@@ -54,6 +59,9 @@ struct Distribution {
 		std::sort(sorted_v.begin(), sorted_v.end());
 
 		T median;
+		// median is:
+		//		- if length is odd: middle value
+		//		- if length is even: half of both values in the middle
 		if (static_cast<int>(N) % 2 != 0) {
 			median = sorted_v[static_cast<int>(N) / 2];
 		}
@@ -61,6 +69,7 @@ struct Distribution {
 			median = static_cast<T>((sorted_v[(static_cast<int>(N) - 1) / 2] + sorted_v[static_cast<int>(N) / 2]) / 2.0);
 		};
 		
+		// to get the mode, as the array is sorted, simply count the number of repeating numbers (and store biggest)
 		T best{sorted_v[0]};
 		int best_count{ 1 };
 		T current{ sorted_v[0] };
@@ -68,6 +77,7 @@ struct Distribution {
 		for (int i{ 1 }; i < N; ++i) {
 			if (sorted_v[i] == current) { ++count; }
 			else {
+				// we only update if the count if strictly bigger => if there are equal bests this will take the smallest
 				if (count > best_count) {
 					best = current;
 					best_count = current;

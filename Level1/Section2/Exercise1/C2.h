@@ -1,3 +1,4 @@
+// C2.h: This file contains the class C2. @Nicolas Buchwalder
 #pragma once
 #include <iostream>
 #include <vector>

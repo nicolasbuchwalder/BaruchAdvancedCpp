@@ -1,3 +1,5 @@
+// Level1_Section6_Exercise4.cpp: This file contains all the code for this exercise. @Nicolas Buchwalder
+
 #include <list>
 #include <iostream>
 #include <algorithm>
@@ -43,8 +45,10 @@ class newClient {
     using newStorage = std::list<T, std::allocator<T>>;
 
 private:
+    // setting this new datatype here
     newStorage data;
 public:
+    // everything remains the same as before here
     newClient(int n, const T& val) : data(n, val) {};
     void print() const {
         std::for_each(data.begin(), data.end(),

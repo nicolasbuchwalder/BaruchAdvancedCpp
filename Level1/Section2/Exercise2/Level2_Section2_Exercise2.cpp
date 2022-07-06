@@ -1,3 +1,6 @@
+// Level1_Section2_Exercise2.cpp: This file contains all the code for this exercise. @Nicolas Buchwalder
+
+
 #include <iostream>
 #include <string>
 #include <array>

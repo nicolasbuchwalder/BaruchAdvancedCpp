@@ -1,3 +1,5 @@
+// Level1_Section6_Exercise2.cpp: This file contains the main function for this exercise. @Nicolas Buchwalder
+
 #include "TMPClass.h"
 
 #include <vector>
@@ -23,4 +25,5 @@ int main() {
 	std::size_t n{ 10 };
 	TMPClass algo(n, startValue, in_function, out_function);
 	algo.out();
+	// we got indeed 3.14 for a vector of 10 values, works proprely
 }

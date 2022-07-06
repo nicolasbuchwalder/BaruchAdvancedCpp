@@ -1,81 +1,75 @@
+// Level2_Section3_Exercise2.cpp: This file contains the full code for this exercise
+// @NicolasBuchwalder for QuantNet/Baruch MFE Advanced C++ course
+
 #include <iostream>
 
-// PART A)
 
-// depr function
+// deprecated free function
 [[deprecated("Deprecated function")]] void deprecatedFunction() {
     std::cout << "Hello, World 0" << std::endl;
 }
 
-// depr class with depr member
+// deprecated class with deprecated member function
 class [[deprecated("Deprecated class")]] DeprecatedClass {
 public:
     DeprecatedClass() {}
-    void deprecatedMember();
+    [[deprecated("Deprecated member")]] void deprecatedMember() {
+        std::cout << "Hello, World 1" << std::endl;
+    };
 };
 
-// depr member
-[[deprecated("Deprecated member")]] void DeprecatedClass::deprecatedMember() {
-    std::cout << "Hello, World 1" << std::endl;
-}
-
-// non depr class
+// non deprecated class with deprecated member function
 class NonDeprecatedClass {
 public:
     NonDeprecatedClass() {}
-    void deprecatedMember();
+    [[deprecated("Deprecated member")]] void deprecatedMember() {
+        std::cout << "Hello, World 2" << std::endl;
+    };
 };
 
-// depr member
-[[deprecated("Deprecated member")]] void NonDeprecatedClass::deprecatedMember() {
-    std::cout << "Hello, World 2" << std::endl;
-}
 
-// depr global
-[[deprecated("Deprecated global")]]
+// deprecated global variable
+[[deprecated("Deprecated global variable")]]
 int deprecatedGlobal = 0;
 
-// depr enum
+// deprecated enum
 enum [[deprecated("Deprecated enum")]] DeprecatedEnum {
     VALUE1,
     VALUE2
 };
 
-// depr enum class
+// deprecated enumclass
 enum class [[deprecated("Deprecated enum class")]] DeprecatedEnumClass {
     VALUE1,
     VALUE2
 };
 
-// depr template specialization
+// deprecated template specialization
 template <typename T>
 class DeprecatedTemplateSpecialization {};
 template <>
 class [[deprecated("Deprecated template specialization")]] DeprecatedTemplateSpecialization<int> {};
 
-// depr lambda function
+// deprecated lambda function
 [[deprecated("Deprecated lambda")]] auto deprecatedLambda = [](int x) {
     return x;
 };
 
 int main() {
-    // tests
-    // depr function
-    deprecatedFunction();
-    // depr class with depr member
-    DeprecatedClass dc;
-    dc.deprecatedMember();
-    // non depr class
+    // testing all depracated
+    // everything commented out as it throws exceptions
+    // 
+    //deprecatedFunction();
+    // 
+    //DeprecatedClass dc;
+    //dc.deprecatedMember();
     NonDeprecatedClass ndc;
-    ndc.deprecatedMember();
-    // depr global
-    std::cout << deprecatedGlobal << std::endl;
-    // depr enum
-    DeprecatedEnum value1 = VALUE1;
-    // depr enum class
-    DeprecatedEnumClass value2 = DeprecatedEnumClass::VALUE2;
-    // depr template specialization
-    DeprecatedTemplateSpecialization<int> dts;
-    // depr lambda function
-    std::cout << deprecatedLambda(0) << std::endl;
+    // => does not throw error
+    // 
+    //ndc.deprecatedMember();
+    //std::cout << deprecatedGlobal << std::endl;
+    //DeprecatedEnum value1 = VALUE1;
+    //DeprecatedEnumClass value2 = DeprecatedEnumClass::VALUE2;
+    //DeprecatedTemplateSpecialization<int> dts;
+    //std::cout << deprecatedLambda(0) << std::endl;
 }

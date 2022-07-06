@@ -18,9 +18,6 @@
     <ClCompile Include="Level1_Section6_Exercise2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TMPClass.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TMPClass.h">

@@ -1,3 +1,4 @@
+// Builder1.h: This is a derived Builder class for binding a circle with device 1
 #pragma once
 #include "Shape.h"
 #include "Circle.h"

@@ -1,3 +1,5 @@
+// Level1_Section6_Exercise3.cpp: This file contains all the code for this exercise. @Nicolas Buchwalder
+
 #include "DefaultClass.h"
 #include "ValueClass.h"
 #include "DirectClass.h"

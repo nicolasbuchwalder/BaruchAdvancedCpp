@@ -1,3 +1,5 @@
+// IODevice.h: This is the base IODevice class for the devices on which CAD is shown. @Nicolas Buchwalder
+
 #pragma once
 #include "Shape.h"
 

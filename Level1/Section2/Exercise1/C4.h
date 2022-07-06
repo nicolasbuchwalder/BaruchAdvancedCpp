@@ -1,3 +1,5 @@
+// C4.h: This file contains the class C4. @Nicolas Buchwalder
+
 #pragma once
 #include <iostream>
 #include <vector>

@@ -1,50 +1,23 @@
+// Level2_Section4_Exercise2.cpp: This file contains the main function for this exercise
+// @NicolasBuchwalder for QuantNet/Baruch MFE Advanced C++ course
+
+// PART A)
+#include "C1.h"
+#include "C2.h"
+
+// PART C)
+#include "Point.h"
+#include "C3.h"
+
+
 #include <iostream>
 #include <memory>
 
-class C1 {
-private:
-    std::shared_ptr<double> d;
-
-public:
-    C1(std::shared_ptr<double> value) : d(value) {}
-    virtual ~C1() { std::cout << "C1 destructor" << std::endl; }
-    void print() const { std::cout << "Value: " << *d << std::endl; }
-};
-
-class C2 {
-private:
-    std::shared_ptr<double> d;
-
-public:
-    C2(std::shared_ptr<double> value) : d(value) {}
-    virtual ~C2() { std::cout << "C2 destructor" << std::endl; }
-    void print() const { std::cout << "Value: " << *d << std::endl; }
-};
-
-class Point {
-public:
-    double x;
-    double y;
-
-    Point(double x_, double y_) : x(x_), y(y_) {}
-    virtual ~Point() { std::cout << "\nPoint destructor\n"; }
-    void print() const { std::cout << "x: " << x << " y: " << y << std::endl; }
-};
-
-class C3 {
-private:
-    std::shared_ptr<Point> pt;
-
-public:
-    C3(std::shared_ptr<Point> value) : pt(value) {}
-    virtual ~C3() { std::cout << "C3 destructor" << std::endl; }
-    void print() const { std::cout << "x: " << pt->x << " y: " << pt->y << std::endl; }
-};
 
 int main() {
     std::cout << std::boolalpha;
 
-    // PART A & B)
+    // PART B)
 
     std::shared_ptr<double> val(new double(1.0));
 
@@ -59,9 +32,9 @@ int main() {
         std::cout << "Pointers count at end of scope: " << val.use_count() << std::endl;
     }
 
-    std::cout << "Pointers count after: " << val.use_count() << std::endl;
-
+    std::cout << "Pointers count after end of scope: " << val.use_count() << std::endl;
     std::cout << std::endl;
+    // => we notice indeed that the pointers are destroyed after end of scope
 
     // PART C)
 
@@ -76,42 +49,44 @@ int main() {
     }
 
     std::cout << "Pointers count after: " << pt.use_count() << std::endl;
-    
     std::cout << std::endl;
+    //=> again, as before, the pointer is destructed at the end of the scope
 
     // PART D)
-
+    
+    // testing features:
     std::shared_ptr<double> val1(new double(1.0));
-    // assign
+    // assigning
     std::shared_ptr<double> sp1 = val1;
-    // copy
+    // copying
     std::shared_ptr<double> sp2 = std::make_shared<double>(*sp1);
 
     std::cout << "Pointers count before: " << val1.use_count() << std::endl;
 
-    // compare
+    // comparing
     if (sp1 == sp2) {
         std::cout << "sp1 and sp2 are the same" << std::endl;
-    } else {
+    }
+    else {
         std::cout << "sp1 and sp2 are not the same" << std::endl;
     }
 
-    // Transfer ownership from sp1 to sp2.
+    // transfering ownership from sp1 to sp2.
     sp2 = std::move(val1);
     std::cout << "Pointers count after ownership transfer: " << val1.use_count() << std::endl;
 
-    // Determine if a shared_ptr is the only pointer to a resource
+    // determining if a shared_ptr is the only pointer to a resource
     std::shared_ptr<double> sp3(new double(1.0));
-    std::cout << "is sp1 unique: " << sp1.unique() << std::endl;
-    std::cout << "is sp2 unique: " << sp2.unique() << std::endl;
-    std::cout << "is sp3 unique: " << sp3.unique() << std::endl;
+    std::cout << "is sp1 unique: " << (sp1.use_count() > 1) << std::endl;
+    std::cout << "is sp2 unique: " << (sp2.use_count() > 1) << std::endl;
+    std::cout << "is sp3 unique: " << (sp3.use_count() > 1) << std::endl;
 
-    // Swap sp1 and sp2.
+    // swaping sp1 and sp2.
     std::cout << "Pointers count before swap: " << sp1.use_count() << std::endl;
     sp1.swap(sp2);
     std::cout << "Pointers count after swap: " << sp1.use_count() << std::endl;
 
-    // Give up ownership and reinitialise the shared pointer as being empty.
+    // giving up ownership and reinitialise the shared pointer as being empty.
     sp1.reset();
     std::cout << "Pointers count after reset: " << sp1.use_count() << std::endl;
 

@@ -1,3 +1,6 @@
+// Level1_Section1_Exercise3.cpp: This file contains the main function for this exercise. @Nicolas Buchwalder
+
+
 #include "C.h"
 #include "C1.h"
 #include "C2.h"

@@ -1,9 +1,13 @@
+// Level2_Section7_Exercise3.cpp: This file contains the full code for this exercise
+// @NicolasBuchwalder for QuantNet/Baruch MFE Advanced C++ course
+
 #include <iostream>
 #include <system_error>
 
 int main() {
-    // PART A)
 
+    // PART A)
+    // creating instances for given error codes
     // io_error.
     std::error_condition c1 = std::error_condition(std::errc::io_error);
     std::cout << "io_error:                  " << c1.message() << std::endl;
@@ -21,13 +25,13 @@ int main() {
     std::cout << "permission_denied:         " << c5.message() << std::endl;
 
     // PART B)
-
+    // creating error with value 128 and generic error category
     std::error_condition ec1(128, std::generic_category());
     std::cout << "128:                       " << ec1.message() << std::endl;
-
+    //=> is not a socket condition
     // PART C)
 
-    // Use std::make_error_condition (with std::io_errc as argument) to create an instance of std::error_condition.
+    // using std::make_error_condition (with std::io_errc as argument) to create an instance of std::error_condition
     std::error_condition ec2 = std::make_error_condition(std::io_errc::stream);
     std::cout << "io_errc stream:            " << ec2.message() << std::endl;
 }

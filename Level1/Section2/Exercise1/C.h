@@ -1,3 +1,5 @@
+// C.h: This file contains the class C. @Nicolas Buchwalder
+
 #pragma once
 #include <iostream>
 #include <vector>

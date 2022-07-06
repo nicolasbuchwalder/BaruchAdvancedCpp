@@ -1,3 +1,5 @@
+// Level1_Section3_Exercise1.cpp: This file contains all the code for this exercise. @Nicolas Buchwalder
+
 #include <iostream>
 #include <bitset>
 

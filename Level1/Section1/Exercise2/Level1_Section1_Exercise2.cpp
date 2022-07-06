@@ -1,3 +1,4 @@
+// Level1_Section1_Exercise2.cpp: This file contains all the code for this exercise. @Nicolas Buchwalder
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -43,11 +44,17 @@ int main() {
     std::vector<int> vec{ 1,2,3,4,5 };
     int initVal = 1;
 
+    // accumulate with stl
     int acc{ std::accumulate(vec.begin(), vec.end(), initVal, std::multiplies<int>()) };
+    // accumulate with lambda function
     int accGeneric{ std::accumulate(vec.begin(), vec.end(), initVal, MyMultiply) };
+    // accumulate with function object
     int accTemplate{ std::accumulate(vec.begin(), vec.end(), initVal, FOMultiply()) };
-    auto accC{ std::accumulate(complexArray.begin(), complexArray.end(), initCVal, FOMultiply()) };
+    // complex accumulate with function object
+    Complex accC{ std::accumulate(complexArray.begin(), complexArray.end(), initCVal, FOMultiply()) };
+    // complex accumulate with function lambda function
     Complex accCGeneric{ std::accumulate(complexArray.begin(), complexArray.end(), initCVal, MyMultiply) };
+    // complex accumulate with function template function
     Complex accCGenericTemplate{ std::accumulate(complexArray.begin(), complexArray.end(), initCVal, MyMultiply2<Complex>) };
 
     // PART A)
@@ -57,15 +64,16 @@ int main() {
     std::cout << "Sum complex template: " << accC << std::endl;
     std::cout << "Sum complex generic: " << accCGeneric << std::endl;
     std::cout << "Sum complex generic template: " << accCGenericTemplate << std::endl;
-
     std::cout << std::endl;
-    // => everything is the same
+
+    // => everything is the same 
 
     // PART B)
 
     auto sum_ints{ 0 };
     Complex sum_complex{ 0.0, 0.0 };
 
+    // computing the sum of the arrays for int and complex
     std::for_each(vec.begin(), vec.end(), [&](int const& i) {sum_ints += i; });
     std::for_each(complexArray.begin(), complexArray.end(), [&](Complex const& i) {sum_complex += i; });
 
@@ -76,7 +84,7 @@ int main() {
     // => it works fine
 
     // PART C)
-    // stored lambda function that substracts susbtractor from vector. We use for each as stl algorithm
+    // stored lambda function that substracts susbtractor from vector. We use for_each as stl algorithm
     int substractor{ 5 };
     auto substract = [&](int& i) {i -= substractor; };
 

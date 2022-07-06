@@ -1,3 +1,4 @@
+// Line.h: This is a derived Shape  class for portraying line in the CAD. @Nicolas Buchwalder
 #pragma once
 #include "Shape.h"
 //#include "IODevice.h"

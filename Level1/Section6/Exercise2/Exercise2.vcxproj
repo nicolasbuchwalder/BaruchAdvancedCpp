@@ -130,7 +130,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Level1_Section6_Exercise2.cpp" />
-    <ClCompile Include="TMPClass.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TMPClass.h" />

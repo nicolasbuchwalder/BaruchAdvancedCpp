@@ -1,8 +1,9 @@
+// Level1_Section6_Exercise1.cpp: This file contains all the code for this exercise. @Nicolas Buchwalder
+
 #include <iostream>
 #include <memory>
 
 // PART A)
-
 struct Base
 {
     virtual void draw() { std::cout << "print a base\n"; };

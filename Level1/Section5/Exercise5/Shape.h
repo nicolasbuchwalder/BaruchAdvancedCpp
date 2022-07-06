@@ -1,5 +1,6 @@
-#pragma once
+// Shape.h: This is the base class for the different shapes of the CAD. @Nicolas Buchwalder
 
+#pragma once
 #include <iostream>
 
 // forward decleration of the IODevice base class

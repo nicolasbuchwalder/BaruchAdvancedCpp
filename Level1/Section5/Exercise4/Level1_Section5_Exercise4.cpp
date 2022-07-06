@@ -1,3 +1,5 @@
+// Level1_Section5_Exercise4.cpp: This file contains all the code for this exercise. @Nicolas Buchwalder
+
 #include <iostream>
 #include <tuple>
 #include <vector>
@@ -5,6 +7,7 @@
 #include <random>
 
 // PART A)
+// template with struct and static method to find the best matching index where values are between x
 template <typename T, typename X_t,  typename Vec, std::size_t N>
 struct Finder {
 	static int best_index(const Vec& v, X_t x) {

@@ -1,3 +1,6 @@
+// Level1_Section5_Exercise5.cpp: This file contains the main function for this exercise. @Nicolas Buchwalder
+
+
 #include "Shape.h"
 #include "IODevice.h"
 
@@ -21,6 +24,7 @@
 #include <iostream>
 #include <tuple>
 
+// aliases for the shared pointers and their tuple
 using ShapePointer = std::shared_ptr<Shape>;
 using IODevicePointer = std::shared_ptr<IODevice>;
 using DisplayTuple = std::tuple<ShapePointer, IODevicePointer>;

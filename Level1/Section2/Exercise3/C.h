@@ -1,3 +1,5 @@
+// C.ch: This file contains the class C for this exercise. @Nicolas Buchwalder
+
 #pragma once
 #include <iostream>
 #include <vector>

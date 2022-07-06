@@ -1,12 +1,16 @@
+// Level1_Section4_Exercise1.cpp: This file contains all the code for this exercise. @Nicolas Buchwalder
+
 #include <iostream>
 #include <functional>
 #include <cmath>
 
 // PART A)
 
+// template function wrapper for a certain type
 template <typename T>
 using FunctionType = std::function<T(const T& t)>;
 
+// printing the function that is contained in the function wrapper 
 template <typename T>
 void print(const FunctionType<T>& f, T t)
 {
@@ -46,7 +50,7 @@ int main()
     print(circle, t);
     print(perf_rectangle, t);
     print(square, t);
-
+    //=> works as expected
 
 }
 

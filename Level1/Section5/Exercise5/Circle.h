@@ -1,3 +1,5 @@
+// Circle.h: This is a derived Shape class for portraying a circle in the CAD. @Nicolas Buchwalder
+
 #pragma once
 #include "Shape.h"
 

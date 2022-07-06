@@ -1,3 +1,5 @@
+// Level1_Section5_Exercise1.cpp: This file contains all the code for this exercise. @Nicolas Buchwalder
+
 #include <boost/date_time/gregorian/gregorian.hpp>
 #include <tuple>
 #include <array>
@@ -7,26 +9,32 @@
 #include <iostream>
 
 // PART A)
+// alias for a tuple representing a person
+
 using Person = std::tuple<std::string, boost::gregorian::date>;
 
 // PART B)
+// printing function for the person tuple
 void printPerson(Person const& person) { std::cout << "Name: " << std::get<0>(person) << ", \t Birthday: " << std::get<1>(person) << std::endl; }
 
 
 // PART C)
+// vector of person tuple
 using People = std::vector<Person>;
 
+// printing function for vector of person tuple
 void printPeople(People const& people) {
 	for (auto const& person : people) { printPerson(person); };
 };
 
 // PART D)
+// function necessary for the sorting by birthdate
 bool compareBrithdate(Person const& person1, Person const& person2) {
 	return (std::get<1>(person1) < std::get<1>(person2));
 };
 
 // PART F)
-
+// function printing a span with range-based loop
 void printSpanRange(const std::span<int>& span) {
 	std::cout << "Range-Based: ";
 	for (auto elem : span) {
@@ -34,7 +42,7 @@ void printSpanRange(const std::span<int>& span) {
 	};
 	std::cout << std::endl;
 };
-
+// function printing a span with iterator loop
 void printSpanIterator(const std::span<int>& span) {
 	std::cout << "Iterator: ";
 	for (auto ptr{ span.begin()}; ptr != span.end(); ++ptr) {
@@ -42,7 +50,7 @@ void printSpanIterator(const std::span<int>& span) {
 	};
 	std::cout << std::endl;
 };
-
+// function printing a span with indexing loop
 void printSpanIndexing(const std::span<int>& span) {
 	std::cout << "Indexing: ";
 	for (int i{ 0 }; i < span.size(); ++i) {
@@ -53,17 +61,18 @@ void printSpanIndexing(const std::span<int>& span) {
 
 
 // PART G)
+// getting the first N elements of a span
 std::span<int> firstNSpan(const std::span<int>& span, const int N) {
 	return std::span< int, std::dynamic_extent> {span.first(N)};
 };
-
+// getting the last N elements of a span
 std::span<int> lastNSpan(const std::span<int>& span, const int N) {
 	return std::span< int, std::dynamic_extent> {span.last(N)};
 };
 
 
 // PART H)
-
+// function to check what subspan does
 void testSubspan(const std::span<int>& span, int start, int length) {
 	auto subspan{ span.subspan(start, length) };
 	printSpanRange(subspan);

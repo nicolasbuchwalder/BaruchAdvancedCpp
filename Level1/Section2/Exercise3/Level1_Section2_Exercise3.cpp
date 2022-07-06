@@ -1,3 +1,5 @@
+// Level1_Section1_Exercise2.cpp: This file contains the main function for this exercise. @Nicolas Buchwalder
+
 #include "C.h"
 
 #include <vector>

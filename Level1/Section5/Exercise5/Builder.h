@@ -1,3 +1,5 @@
+// Builder.h: This is the base Builder class for binding both shapes and devices in a pointer tuple. @Nicolas Buchwalder
+
 #pragma once
 #include "Shape.h"
 #include "IODevice.h"

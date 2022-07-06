@@ -1,8 +1,12 @@
+// Level1_Section4_Exercise5.cpp: This file contains all the code for this exercise. @Nicolas Buchwalder
+
 #include <iostream>
 #include <functional>
 
 
 // PART A)
+
+// template function wrapper
 template <typename T>
 using FunctionType = std::function<T(const T& t)>;
 
@@ -21,6 +25,7 @@ public:
 
     T rotate(double d) { return _func(d) * _fac; };
 
+    // method to change function of the class
     void switchFunction(const FunctionType<T>& function)
     {
         _func = function;

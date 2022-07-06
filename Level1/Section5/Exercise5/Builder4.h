@@ -1,3 +1,4 @@
+// Builder4.h: This is a derived Builder class for binding a line with device 2
 #pragma once
 #include "Shape.h"
 #include "Line.h"
