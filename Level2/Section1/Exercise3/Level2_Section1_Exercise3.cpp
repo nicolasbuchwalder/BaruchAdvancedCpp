@@ -36,7 +36,7 @@ int main() {
     Base base;
     Point point;
 
-    std::cout << "Shape..." << std::endl; // TODO je crois que ca doit eval a abstract == true mais la c'est false
+    std::cout << "Shape..." << std::endl;
     evalClass(shape);
     std::cout << std::endl << "Base..." << std::endl;
     evalClass(base);

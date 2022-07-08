@@ -2,8 +2,6 @@
 #include <cmath>
 #include <boost/math/special_functions/next.hpp>
 
-// TODO je sais pas si c'est assez de tests
-
 int main() {
     // Number gaps/bits/ULP between
     // 2 floating-point values a and b

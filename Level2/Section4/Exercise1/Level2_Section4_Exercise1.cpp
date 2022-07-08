@@ -21,7 +21,6 @@ public:
 
 int main() {
     // PART A)
-    // TODO pas sur que c'est correct
 
     double* d = new double (1.0);
     Point* pt = new Point(1.0, 2.0); // Two-d Point class

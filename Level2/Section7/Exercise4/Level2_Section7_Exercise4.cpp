@@ -31,7 +31,6 @@ int main() {
     std::error_code ec3(0, std::generic_category());
     std::error_condition ec4(std::errc::no_such_file_or_directory);
 
-    // TODO pas sur si c'est bien ce qu'on demande
     std::cout << "ec1 == ec2: " << (ec1 == ec2) << std::endl;
     std::cout << "ec1 == ec3: " << (ec1 == ec3) << std::endl;
     std::cout << "ec3 == ec4: " << (ec3 == ec4) << std::endl;

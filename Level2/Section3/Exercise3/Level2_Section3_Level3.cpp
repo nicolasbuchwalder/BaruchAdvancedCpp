@@ -264,7 +264,7 @@ int main() {
     auto h2 = max(f, g);
     std::cout << "min(f,g): " << h1(2.0) << std::endl;
     std::cout << "max(f,g): " << h2(2.0) << std::endl;
-    auto h3 = min(h1, max(2.0 * f, 3.0 * g)); // TODO j'ai change les chiffres de int a double je sais pas si c'est ok mais sinon ca marche pas
+    auto h3 = min(h1, max(2.0 * f, 3.0 * g));
     auto h4 = max(h2, max(-2.0 * f, 3.0 * g));
     std::cout << "min(min(f,g): " << h3(2.0) << std::endl;
     std::cout << "max(max(f,g): " << h4(2.0) << std::endl;

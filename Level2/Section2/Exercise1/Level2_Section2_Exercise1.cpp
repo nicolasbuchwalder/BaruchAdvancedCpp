@@ -91,7 +91,6 @@ std::string arraylikeToString(const T& t) {
 
 int main() {
     // PART D)
-    // TODO ca compile ca print pas tout
     
     // Definitions
     // array
