@@ -14,9 +14,9 @@ class Vector
 	// PART A-B-C)
 	// constructors, access, operations
 	using dataType = std::array<T, N>;
-private: 
+private:
 	// choosing std::array for data
-	dataType data{0};
+	dataType data{ 0 };
 
 public:
 	// default, value with array and copy constructors
@@ -63,13 +63,13 @@ public:
 	};
 
 	// scalar multiplication
-	//Vector operator*(T coeff) {
-	//	Vector res(this->data);
-	//	for (int i = 0; i < N; ++i) {
-	//		res[i] *= coeff;
-	//	};
-	//	return res;
-	//};
+	Vector operator*(T coeff) {
+		Vector res(this->data);
+		for (int i = 0; i < N; ++i) {
+			res[i] *= coeff;
+		};
+		return res;
+	};
 
 	// printing vector
 	friend std::ostream& operator<<(std::ostream& out, const Vector& vec) {
@@ -79,11 +79,11 @@ public:
 		return out;
 	};
 
-
 	// PART D)
+	
 	// printing the scalar multiplication with an additionnal template parameter
-	template <typename T, int N, typename F> Vector<T, N>
-	friend operator* (const F& a, const Vector<T, N>& pt) {
+	template <typename F> 
+	friend Vector operator* (const F& a, const Vector& pt) {
 		Vector<T, N> res(pt.data);
 		for (int i = 0; i < N; ++i) {
 			// as F can be different then T, we need to convert it
@@ -93,11 +93,13 @@ public:
 	};
 
 	// PART E)
-	//void modify(const std::function < T(T&)>& f) {
-	//	std::transform(this->data.cbegin(), this->data.cend(), this->data.begin(), f);
-	//};
-
-
+	
+	// function that modifies the vector
+	void modify(const std::function < T(T&)>& f) {
+		for (auto& elem : this->data) { elem = f(elem); };
+	};
 
 };
+
+
 

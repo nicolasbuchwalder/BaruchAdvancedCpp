@@ -20,15 +20,15 @@ int main() {
 	std::cout << vec1 + vec2 << std::endl;
 	std::cout << vec1 - vec2 << std::endl;
 	std::cout << -vec1 << std::endl;
-	//double pi{ 3.14 };
-	//std::cout << pi * vec1 << std::endl;
+	double pi{ 3.14 };
+	std::cout << pi * vec1 << std::endl;
 	std::cout << std::endl;
 	//=> everything seems to work fine
 
 	// PART D)
 	// checking that the scalar multiplication works
 	Vector<std::complex<double>, 2> cmpvec1(std::array<std::complex<double>,2>{std::complex<double>(1, 0), std::complex<double>(0, 1)});
-	//std::cout << 3.14 * vec1 << std::endl;
+	std::cout << 3.14 * vec1 << std::endl;
 	//=> works indeed with any type
 
 
@@ -36,7 +36,8 @@ int main() {
 	// creating lambda function that will modify the values of the array
 	std::function<double(double)> squared = [](double i) {return i * i; };
 	std::cout << "Original vector:" << vec1 << std::endl;
-	//vec1.modify(squared);
-	//std::cout << "Modified vector:" << vec1 << std::endl;
+	vec1.modify(squared);
+	std::cout << "Modified vector:" << vec1 << std::endl;
+	//=> works
 };
 
